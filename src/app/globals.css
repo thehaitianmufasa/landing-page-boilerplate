@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * LANDING PAGE BOILERPLATE
+ * CSS Variables - Customize these per client
+ * ============================================
+ */
+
+:root {
+  /* Brand Colors - Override per client */
+  --color-primary: #1a1a2e;      /* Deep navy */
+  --color-secondary: #16213e;    /* Dark blue */
+  --color-accent: #e94560;       /* Coral accent */
+  --color-dark: #0f0f23;         /* Near black */
+  --color-light: #f8f9fa;        /* Off white */
+
+  /* Fonts - Override per client */
+  --font-sans: system-ui, -apple-system, sans-serif;
+  --font-heading: system-ui, -apple-system, sans-serif;
+
+  /* Spacing */
+  --section-padding: 5rem;
+  --container-max: 1200px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-light: #1a1a2e;
+    --color-dark: #f8f9fa;
+  }
+}
+
+/*
+ * BASE STYLES
+ * ============================================
+ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  line-height: 1.6;
+}
+
+/*
+ * UTILITY CLASSES
+ * ============================================
+ */
+
+@layer utilities {
+  /* Container */
+  .container-custom {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Section spacing */
+  .section-padding {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+
+  /* Text utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-accent;
+  }
+
+  /* Glass effect */
+  .glass {
+    @apply backdrop-blur-md bg-white/80 border border-white/20;
+  }
+
+  /* Focus ring */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2;
+  }
+}
+
+/*
+ * COMPONENT STYLES
+ * ============================================
+ */
+
+@layer components {
+  /* Button base */
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 font-medium rounded-lg transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-primary text-white hover:bg-brand-secondary hover:scale-105 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply btn bg-white text-brand-primary border-2 border-brand-primary hover:bg-brand-primary hover:text-white;
+  }
+
+  .btn-accent {
+    @apply btn bg-brand-accent text-white hover:brightness-110 hover:scale-105 active:scale-95;
+  }
+
+  /* Input base */
+  .input-base {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg transition-all duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent;
+    @apply placeholder:text-gray-400;
+  }
+
+  /* Card */
+  .card {
+    @apply bg-white rounded-2xl shadow-lg p-6 md:p-8;
+  }
+
+  .card-hover {
+    @apply card hover:shadow-xl hover:-translate-y-1 transition-all duration-300;
+  }
+}
