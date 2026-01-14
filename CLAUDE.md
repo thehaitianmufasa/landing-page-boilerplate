@@ -6,6 +6,29 @@
 
 ---
 
+## Session Protocol (CMP v3)
+
+**ALWAYS start sessions by reading `.cmp/` files:**
+
+```bash
+# Session Start (in order)
+1. .cmp/handoff.md   # Where we left off
+2. .cmp/context.md   # Project intent
+3. .cmp/todos.md     # Remaining tasks
+4. .cmp/issues.md    # Known problems
+```
+
+**During work:**
+- Update `todos.md` after completing tasks
+- Append to `insights.md` (never overwrite)
+- Log issues immediately to `issues.md`
+
+**Before ending session:**
+- Update `.cmp/handoff.md` with current state
+- Commit: `git add .cmp/ && git commit -m "Update CMP state"`
+
+---
+
 ## Quick Start Commands
 
 ```bash
