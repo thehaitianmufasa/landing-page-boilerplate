@@ -98,28 +98,73 @@ bun run format
 │   │   ├── api/leads/           # Lead capture API
 │   │   ├── globals.css          # Global styles + CSS variables
 │   │   ├── layout.tsx           # Root layout
-│   │   └── page.tsx             # Landing page
+│   │   └── page.tsx             # Landing page (imports from @/content)
+│   │
 │   ├── components/
-│   │   ├── landing/             # Landing page components
+│   │   ├── landing/             # Landing page sections
 │   │   │   ├── Hero.tsx         # Hero section with animations
 │   │   │   ├── Features.tsx     # Features grid
 │   │   │   ├── Testimonials.tsx # Testimonial cards
 │   │   │   ├── FAQ.tsx          # Accordion FAQ
 │   │   │   ├── CTA.tsx          # Call-to-action section
 │   │   │   ├── Header.tsx       # Navigation header
-│   │   │   └── Footer.tsx       # Footer
-│   │   └── forms/
-│   │       └── LeadCaptureForm.tsx  # Lead capture form
-│   ├── config/
-│   │   ├── site.ts              # Site-wide configuration
+│   │   │   ├── Footer.tsx       # Footer
+│   │   │   └── index.ts         # Barrel export
+│   │   ├── forms/
+│   │   │   ├── LeadCaptureForm.tsx
+│   │   │   └── index.ts         # Barrel export
+│   │   └── ui/                  # Reusable UI primitives
+│   │       ├── Button.tsx       # Button component
+│   │       ├── Input.tsx        # Input component
+│   │       ├── Card.tsx         # Card component
+│   │       ├── Badge.tsx        # Badge component
+│   │       ├── Section.tsx      # Section wrapper
+│   │       └── index.ts         # Barrel export
+│   │
+│   ├── content/                 # Page content (edit for each client)
+│   │   ├── landing.ts           # All landing page content
+│   │   └── index.ts             # Barrel export
+│   │
+│   ├── config/                  # App configuration
+│   │   ├── site.ts              # Site-wide settings
 │   │   └── brand.ts             # Brand colors/fonts
-│   └── lib/
+│   │
+│   ├── types/                   # TypeScript interfaces
+│   │   └── index.ts             # All shared types
+│   │
+│   ├── hooks/                   # Custom React hooks
+│   │   ├── useMediaQuery.ts     # Responsive breakpoints
+│   │   ├── useScrollPosition.ts # Scroll tracking
+│   │   └── index.ts             # Barrel export
+│   │
+│   ├── utils/                   # Utility functions
+│   │   ├── cn.ts                # Classname merger
+│   │   ├── format.ts            # Formatting helpers
+│   │   └── index.ts             # Barrel export
+│   │
+│   └── lib/                     # External service clients
 │       └── supabase.ts          # Supabase client
+│
 ├── public/                      # Static assets
+├── .cmp/                        # CMP session files
 ├── .env.local.example           # Environment template
 ├── tailwind.config.ts           # Tailwind configuration
 ├── next.config.ts               # Next.js configuration
 └── package.json                 # Dependencies
+```
+
+## Import Aliases
+
+Use these path aliases for clean imports:
+
+```typescript
+import { Button } from "@/components/ui";      // UI primitives
+import { Hero } from "@/components/landing";   // Landing sections
+import { heroContent } from "@/content";       // Page content
+import type { HeroProps } from "@/types";      // TypeScript types
+import { useIsMobile } from "@/hooks";         // Custom hooks
+import { cn, formatPhone } from "@/utils";     // Utilities
+import { siteConfig } from "@/config/site";    // Configuration
 ```
 
 ---
