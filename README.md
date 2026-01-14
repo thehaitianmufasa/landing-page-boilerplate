@@ -11,6 +11,16 @@ A ready-to-use template for building professional landing pages. Clone it, custo
 - **Lead capture form** that saves to your database
 - **Mobile-friendly** design out of the box
 
+## Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| Next.js 15 | React framework |
+| Tailwind CSS | Styling |
+| Framer Motion | Animations |
+| Supabase | Database |
+| Bun | Package manager |
+
 ## Get Started
 
 ```bash
@@ -38,6 +48,17 @@ Open http://localhost:3000 to see your page.
 1. Create a free project at [supabase.com](https://supabase.com)
 2. Copy your project URL and key to `.env.local`
 3. Leads from your form will save automatically
+
+## Scripts
+
+| Command | What it does |
+|---------|--------------|
+| `bun run dev` | Start local server |
+| `bun run build` | Build for production |
+| `bun run start` | Run production build |
+| `bun run typecheck` | Check for type errors |
+| `bun run lint` | Check code quality |
+| `bun run format` | Auto-format code |
 
 ## Deploy
 
