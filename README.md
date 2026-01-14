@@ -1,123 +1,52 @@
 # Landing Page Boilerplate
 
-A lightweight, reusable landing page template built with modern technologies. Perfect for client projects that need a professional lead capture page without the complexity of a full SaaS framework.
+A ready-to-use template for building professional landing pages. Clone it, customize it, launch it.
 
-## Tech Stack
+## What's Included
 
-- **Framework:** Next.js 15 (App Router)
-- **Styling:** Tailwind CSS
-- **Animations:** Framer Motion
-- **Forms:** React Hook Form + Zod
-- **Database:** Supabase (PostgreSQL)
-- **Package Manager:** Bun
+- **Hero section** with smooth animations
+- **Features grid** to showcase benefits
+- **Testimonials** with star ratings
+- **FAQ accordion** for common questions
+- **Lead capture form** that saves to your database
+- **Mobile-friendly** design out of the box
 
-## Features
-
-- Animated hero section with parallax effects
-- Feature showcase grid
-- Testimonial cards with ratings
-- Accordion FAQ section
-- Lead capture form with validation
-- Responsive header with mobile menu
-- Footer with social links
-- API route for lead storage
-- CSS variables for easy theming
-- TypeScript throughout
-
-## Quick Start
+## Get Started
 
 ```bash
-# Clone the template
-git clone https://github.com/yourusername/landing-page-boilerplate.git client-name
-cd client-name
-
-# Install dependencies
+git clone https://github.com/thehaitianmufasa/landing-page-boilerplate.git my-project
+cd my-project
 bun install
-
-# Set up environment
-cp .env.local.example .env.local
-# Edit .env.local with your Supabase credentials
-
-# Start development
 bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see your landing page.
+Open http://localhost:3000 to see your page.
 
-## Customization
+## Customize
 
-### 1. Update Site Config
-Edit `src/config/site.ts` with your client's information:
-- Business name
-- Description
-- Contact info
-- Navigation links
+**4 files to change:**
 
-### 2. Update Brand Colors
-Edit the CSS variables in `src/app/globals.css`:
-```css
-:root {
-  --color-primary: #1a1a2e;
-  --color-accent: #e94560;
-  /* ... */
-}
-```
+| File | What to update |
+|------|----------------|
+| `src/config/site.ts` | Business name, tagline, contact info |
+| `src/config/brand.ts` | Brand colors |
+| `src/app/globals.css` | Color variables |
+| `src/app/page.tsx` | Headlines, features, testimonials, FAQs |
 
-### 3. Update Page Content
-Edit `src/app/page.tsx` to customize:
-- Hero headlines
-- Features
-- Testimonials
-- FAQs
+## Connect Your Database
 
-## Supabase Setup
+1. Create a free project at [supabase.com](https://supabase.com)
+2. Copy your project URL and key to `.env.local`
+3. Leads from your form will save automatically
 
-1. Create a project at [supabase.com](https://supabase.com)
-2. Run the SQL from `CLAUDE.md` to create the leads table
-3. Add your credentials to `.env.local`
+## Deploy
 
-## Project Structure
-
-```
-src/
-├── app/
-│   ├── api/leads/       # Lead capture API
-│   ├── page.tsx         # Landing page
-│   └── layout.tsx       # Root layout
-├── components/
-│   ├── landing/         # Hero, Features, Testimonials, etc.
-│   └── forms/           # LeadCaptureForm
-├── config/
-│   ├── site.ts          # Site configuration
-│   └── brand.ts         # Brand colors/fonts
-└── lib/
-    └── supabase.ts      # Database client
-```
-
-## Deployment
-
-### Vercel (Recommended)
 ```bash
 vercel --prod
 ```
 
-Don't forget to add environment variables in Vercel dashboard.
-
-## Scripts
-
-| Command | Description |
-|---------|-------------|
-| `bun run dev` | Start development server |
-| `bun run build` | Build for production |
-| `bun run start` | Start production server |
-| `bun run typecheck` | TypeScript type checking |
-| `bun run lint` | Run ESLint |
-| `bun run format` | Format with Biome |
+Add your Supabase credentials in the Vercel dashboard.
 
 ## License
 
-MIT - Use freely for client projects.
-
----
-
-Built with care for fast, beautiful landing pages.
+MIT — use freely for any project.
